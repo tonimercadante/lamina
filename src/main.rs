@@ -1,3 +1,6 @@
+use std::env;
+
 fn main() {
-    println!("Hello, world!");
+    let params: Vec<_> = env::args().collect();
+    println!("{}", params[1]);
 }
