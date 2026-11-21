@@ -1,0 +1,1 @@
+Usage: lamina <file_path>

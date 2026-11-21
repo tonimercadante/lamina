@@ -5,7 +5,7 @@ fn main() {
     let file_path = match args.get(1) {
         Some(fp) => fp,
         None => {
-            println!("Usage: lamina <file_path>");
+            eprintln!("Usage: lamina <file_path>");
             return;
         }
     };
@@ -20,6 +20,6 @@ fn main() {
     let mut s = String::new();
     match file.read_to_string(&mut s) {
         Err(why) => panic!("couldn't read {}: {}", display, why),
-        Ok(_) => print!("{} contains:\n{}", display, s),
+        Ok(_) => print!("{} \n{}", display, s),
     }
 }
