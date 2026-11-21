@@ -2,8 +2,14 @@ use std::{env, fs::File, io::Read, path::Path};
 
 fn main() {
     let args: Vec<_> = env::args().collect();
-
-    let path = Path::new(&args[1]);
+    let file_path = match args.get(1) {
+        Some(fp) => fp,
+        None => {
+            println!("Usage: lamina <file_path>");
+            return;
+        }
+    };
+    let path = Path::new(file_path);
     let display = path.display();
 
     let mut file = match File::open(&path) {
